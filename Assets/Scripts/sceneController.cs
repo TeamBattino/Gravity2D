@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bff8f48cb5b9da998265c39329d92436e3d58d2c739ec573e52d5102ab29bd1c
-size 600
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class sceneController : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        Freeze();   
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public void Freeze()
+    {
+        Time.timeScale = 0;
+    }
+    public void UnFreeze()
+    {
+        Time.timeScale = 1;
+    }
+    public void NextLevel(string level)
+    {
+        SceneManager.LoadScene(level);
+    }
+}

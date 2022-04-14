@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f9f8d38f5f5b22208b453ba4fab57e5dc150e778fcc6f592fdffb4c27c85ab7a
-size 991
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LevelTransfer : MonoBehaviour
+{
+    private buttonActive buttonActive;
+    // Start is called before the first frame update
+    void Start()
+    {
+        buttonActive = GetComponent<buttonActive>();
+        GetComponent<Animator>().SetBool("Opening", false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (buttonActive.allButtonOn)
+        {
+            if (GetComponent<Animator>().GetBool("Opening") == false)
+            {
+                GetComponent<Animator>().SetBool("Opening", true);
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
+        else
+        {
+            if(GetComponent<Animator>().GetBool("Opening") == true) { 
+            GetComponent<Animator>().SetBool("Opening", false);
+            GetComponent<BoxCollider2D>().enabled = true;
+            }
+        }
+    }
+}

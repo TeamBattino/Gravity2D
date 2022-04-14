@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e33303d7551454bb2c53e64c0d0509087b998089c8808848dbfd86cea16f0ee1
-size 607
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class followMouse : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 followDirection = mousePos - transform.position;
+        float directionAngle = Vector2.SignedAngle(Vector2.right, followDirection);
+        transform.eulerAngles = new Vector3(0, 0, directionAngle);
+
+    }
+}

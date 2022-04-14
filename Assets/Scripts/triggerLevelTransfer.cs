@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5bd16fa7005579141f6ae405ed259687c2202b09917a1229a0d0c542c831a9df
-size 587
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class triggerLevelTransfer : MonoBehaviour
+{
+    public sceneController Scenemanager;
+    public string Level;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Scenemanager.NextLevel(Level);
+        }
+        
+    }
+}
